@@ -1,7 +1,5 @@
 ---
 install:
-  - bundle install --path vendor/bundle
   - pip install proselint
-rvm: 2.0.0
-before_script:
-  - bundle exec danger
+script:
+  - proselint presentation.md

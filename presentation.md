@@ -25,7 +25,7 @@ Given this is the developer track at the open repositories conference in 2017, I
 
 Most likely, we are building apps, or websites.
 
-We are probably apart of some unique rube goldberg machine. Somewhere at the end of it their is a human their. And, they are trying to use our software ... too do something.
+We are probably apart of some unique rube goldberg machine. Somewhere at the end of it their is a human their. And, they are trying to use our software … too do something.
 
 If we are unlucky, that user is quietly resenting their screen, and wishes their boss had but another piece of software.
 
