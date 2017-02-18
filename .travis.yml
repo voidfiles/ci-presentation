@@ -1,5 +1,3 @@
 ---
-install:
-  - pip install proselint
 script:
   - proselint presentation.md
