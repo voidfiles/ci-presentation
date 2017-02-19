@@ -1,5 +1,11 @@
 ---
 language: python
-install: "pip install -r requirements.txt"
+addons:
+  apt:
+    packages:
+    - pandoc
+install:
+  - "curl https://github.com/jgm/pandoc/releases/download/1.19.2.1/pandoc-1.19.2.1-1-amd64.deb > /tmp/pandoc-1.19.2.1-1-amd64.deb"
+  - "pip install -r requirements.txt"
 script:
   - proselint presentation.md
