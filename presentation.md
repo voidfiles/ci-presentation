@@ -72,11 +72,11 @@ So, we could fret about risk, or we could make it core to our process. We could 
 # the only certain thing is uncertainty
 
 <div class="notes">
-So, if we embrace uncertaintiy, and we embrace risk. We can start to ask the question: How do we systemically minimize the impact of risk and uncertainty.
+So, if we embrace uncertaintiy, and we embrace risk. We can start to ask: How do we systemically minimize the impact of risk and uncertainty.
 
 Personally, when I finally understood this, it was freeing.
 
-I worked with CI and CD systems for a long time before I understood why they were helpful. Before I actually dug in and did the work to understand the buisness value. All I knew was that I felt better when I used them, the team's I worked on seemed to get alot done.
+I worked with CI and CD systems for a long time before I understood why they were helpful. Before I actually dug in and did the work to understand the buisness value. All I knew was that I felt better when I used them, the team's I worked on seemed to get a lot done.
 
 It wasn't until I did the work that I realized that spending a lot of time on the delivery of software isn't a luxury, it needs to be a core buissness value. The process of delivering the code is just as important as the code it's self.
 </div>
