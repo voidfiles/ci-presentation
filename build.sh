@@ -7,7 +7,8 @@ mkdir -p images
 pandoc -t revealjs \
        -s presentation.md  \
        -o index.html \
-       --template=template/revealjs \
+       --template=revealjs \
+       --data-dir=./ \
        --standalone \
        -c custom.css \
        -V revealjs-url:https://cdn.rawgit.com/hakimel/reveal.js/master/ \
