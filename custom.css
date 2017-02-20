@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=EB+Garamond|Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 .reveal h1,
 .reveal h2,
@@ -8,8 +8,8 @@
 .reveal h6 {
   margin: 0 0 15px 0;
   color: #586e75;
-  font-family: 'EB Garamond', serif;
-  font-weight: normal;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
   line-height: 1.2;
   letter-spacing: normal;
   text-transform: uppercase;
