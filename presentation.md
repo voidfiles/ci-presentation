@@ -7,9 +7,10 @@ Alex Kessinger, Software Architect @ bepress
 # Agenda
 
 - The Goal
-- How do we achieve the goal
-- How does CI/CD help achieve the goal
-- Examples of CI/cd
+- The Risk
+- The Plan
+- The Pipeline
+- Examples
   - Small projects, single person
   - small projects, open source
   - Small projects, company
@@ -25,6 +26,7 @@ The goal is to:
 * Increase time spent on value-producing features
 * Maximize the productivity of IT staff
 * Increase satisfaction
+* Increase the bottomline
 
 <div class='notes'>
 What is the goal?
@@ -47,16 +49,17 @@ Our goal is deliver something valuable to our users.
 
 The power of simple goals like this, and many others, some of which I have listed here is that they can align an entire organization. IT/Engineering/"The Business"/"The Management" they can all agree that delivering value to your users is good, and should be a goal.
 
-Today, I want to talk to you about Continuous integration, and delivery. I want to talk to you about how these ideas can not only help you deliver value, but how they can accelerate that process. And, it might even make your day to day work a little more fun.
+Today, we are going to look at Continuous integration, and delivery as tools, that not only help you deliver value, but will help you accelerate the whole process. And, it might even make your day to day work a little more fun.
 </div>
 
 ---
 
 # Risk
 
-* Deployment Risk
-* Integration Risk
-* Feature Risk
+* Not solving the customers needs
+* Market changes to quickly
+* Software Bugs
+* Capacity and Performance issues
 
 <div class="notes">
 Everywhere you look, you can see risk. From the mundanne risk that we deal with everyday like How's the deploy going to work today? How are the servers doing? Will Our users like this new feature.
@@ -65,13 +68,15 @@ To the existential, how will we continue to be valuable to our customers, what h
 
 I think it's easy in the face of risk to be both cavalier, and fatalisitc, neither of which are helpful attitudesd when it comes to the day to day work of creating software.
 
-So, we could fret about risk, or we could make it core to our process. We could embrace the fact that the only certain thing is uncertaintiy.
+So, we could fret about risk, or we could make it core to our process.
 </div>
 ---
 
-# the only certain thing is uncertainty
+# The only certain thing is uncertainty
 
 <div class="notes">
+We could embrace the fact that the only certain thing is uncertaintiy.
+
 So, if we embrace uncertaintiy, and we embrace risk. We can start to ask: How do we systemically minimize the impact of risk and uncertainty.
 
 Personally, when I finally understood this, it was freeing.
