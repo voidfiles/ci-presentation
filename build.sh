@@ -8,6 +8,7 @@ cp custom.css output/
 pandoc -t revealjs \
        -s presentation.md  \
        -o output/index.html \
+       --from=markdown+yaml_metadata_block \
        --template=revealjs \
        --data-dir=./ \
        --standalone \
