@@ -1,4 +1,3 @@
----
 
 # How Continuous Integration and Delivery can accelerate your process
 
@@ -308,21 +307,6 @@ Make sure you are doing what is right for your organization.
 
 ---
 
-# Checking In
-
-- We all want to deliver value to our users
-- There are many inherent risks in delivering value to our users
-- We must experiment in order to reduce the risk
-
-<div class='notes'>
-- First let's review really quick
-  - We all want to deliver value to our users
-  - There are many inherent risks in delivering value to our users
-  - We must experiment to figure out what works
-</div>
-
----
-
 # Turning your product organization into a science lab
 
 
@@ -349,141 +333,237 @@ Finally, we should try and build a culture of continuous improvment. So, that we
 
 # Checking In
 
-- we all want to deliver value to our users
-- Risk prevents us from delivering value to our users
-- In order to mitigate the risk we need to experiment
-- We can increase the rate of experimentation, and thus decrease risk, by focusing on end to end delivery, fast feedback cycles, and continuous improvement
+- We all want to deliver value to our users
+- Risk prevents us from delivering that value
+- Using experimentation we can mitigate that risk
+- By focusing on:
+  - end to end delivery
+  - fast feedback cycles
+  - continuous improvement
+- We can increase the rate of experimentation, and thus decrease risk.
 
+<div class="notes">
+I know that I have thrown a lot at you in a short amount of time, but I want to checkin on my the core thesis of this talk.
+</div>
 ---
 
 # Finally: CI and CD to the Rescue
 
 - CD: Helps decrease end to end cycle time
 - CI: Helps create fast feedback cycles
-- DevOps/Agigle: Helps create a culture of continus improvment.
+- DevOps/Agile: Helps create a culture of continuous improvement.
 
 
 <div class='notes'>
 The principals of CI, CD and DevOps are the ideas of cycle-time, fast feed back, and contnuous improvement made manifest.
 
-I intentional spent a lot of time breaking down the principals first, because I can only show so much in one talk. If you think these princiapls make sense then just start experimenting and see where it takes you.
+I intentional spent a lot of time breaking down the principals first, because I can only show so much in one talk. But, if these core principals reasonate with you, you can start experimenting in whatever way you think is best for your organization.
 
 But, if you are anything like me, you want to know what others are doing.
 </div>
 
 ---
+# Techniques
 
-# Contiuous Deliver as End-to-End Experimentation
-
-* - automated deployments
-* - graceful restarts
-* - feature Flags
-* - map your value stream
+- Static Analysis
+- Fast Unittests
+- Small Diffs
+- Code Review
+- Automated Deployments
+- Gracefull Restarts
+- Feature Flags
+- Do agile/lean/scrum/something...
+- Product Validation
+- Value Stream mapping
+- Humane postmortem
+- Reserve time for improvement
 
 <div class='notes'>
-The practices of continuous delivery enable fast end-to-end experimentation.
-
-Here are a couple of methods you can use to enable continuous delivery.
-
-Automatted deployments. A good rule of thumb here is: If you are doing anything more then clicking a button, or running one command to deploy code to production then you aren't doing automated deployments.
-
-The goal here is to take something that is an event, and turn it into a non-event.
-
-Gradeful Restarts: Now that you can deploy anytime you want, you want to make sure that when you deploy you don't disrupt the users experience. Now, think about websites. Your users are probably interacting with your website, which means they have an open connection to your app. If you just restart the app you will break that connection, and your users will see that.
-
-Graceful restarts are a way that you can keep the connection open the whole time, while you slowly disconnect your app from the old version, and you connection it to the new app. Which ever ecosystem you are in python, rub, php, java there is a way to do this.
-
-Feature Flags: A Feature Flag gives you the ability to change how your application works at run-time.
-
-You are shipping code to production in an automated fashion, and you can do it on-demand without interupting your users. Now, you want to be able to ship code to production that's not quite ready for primetime. Remeber, we do this so that we can test out features
-
-map your value stream: At some point to decrease end to end cycle time you'll need to involve the rest of your organization.
-
-In order to understand what is upstream from you, you might want to understand your companies value stream.
-
-This basically means you should document the whole process an idea takes from idea stage to being deployed in code.
-
-Once, you have done that your can begin to talk about what is preventing a feature from moving rebought the flow efficiently.
-
-Keep in mind at this point we are no longer talking purely about technology this is a people is sure.
+Now, I want to run through some techniques that you can use to implement a continuous improvment flow for your organization.
 </div>
 
 ---
 
-# Continuous Integration as Fast Feedback
+# Static Analysis
 
-- * Code Review
-- * Static Analysis
-- * Fast Unittests
-- * Seperate code/feature deploys
-- * Product Validation
+- Finds simple errors
+- Integrates into many editors
+- Let's human's focus on important things
 
 <div class='notes'>
-The ultimate goal is to deploy code in production. That is the only place where you're new features can produce value.
+If you are looking for somewhere to start but feel stuck. Try implementing static analysis. This is also refered to as linting.
 
-And, while we can not prove that software will work in production, we can prove that it won't work in production.
+Static analysis allows your organization to choose a code style, and then automated the process of checking compliance. Instead of humans picking through code finding style issues, let the computer do that.
 
-We should devise feedback cycles do that very soon after a developer has committed code. They will know that code is not ready for production.
+Also, If you have an existing code base, you can do this slowly. First, create a whitelist. Then only apply style checks to the files in the whitelist. Then as you can clean files put them into the white list. You can prevent regression, while not having to clean the whole code base at onec.e
+</div>
 
-Its incredibly important to let the developer know in a time let manner. Because, we don't want that developer to context switch away form this task.
+---
 
-## code review
+# Fast unittests
 
-Having another team member look at the code before it gets vomited is a great way to provide quality feedback.
+- 10 minutes max (should be alot faster)
+- Should be run on every merge to master
+- If possible, run before merge via something like a PR
 
-## static analysis
-
-If you are looking for somewhere to start but feel stuck. Try implementing static analysis. also referred to as linting.
-
-If you have an existing code base clean one file. And, add it to a whitelist. Then only check the files in that whitelist. This way you don't have to fix everything in one go, and you can prevent regressions.
-
-## Fast unittests
+<div class='notes'>
+Many people have "unittests", but they aren't fast, and they might even be a nusance to many people.
 
 Making sure that your unit tests are fast are a great way to provide fast feedback. If a developer knows that tests finish in less then 5 minutes. They'll go get a cup of coffee instead of switching to another task.
 
-If you combine unit tests, with good feature planning, and code review you'll really be cooking with gas.
-
-When you plan features, and code, plan in tests, make that the first thing you talk about. Then in code review make sure that the tests are comprehensive.
-
-## separate code deploys and feature deploys
-
-This is another reason to have feature flags. It allows you to push partial features all the way to production and test them there.
-
-This allows you to get feedback from prod before you finish.
-
-## product validation
-
-Instead of planning, building, shipping, and announcing a feature. Identify some early adopters. Push to simplest most variant version to production and turn it on just for them.
-
-Get feedback early.
+If you're tests are fast enough run them in a pre-commit phase. With something like a github PR. This way only code that make's it to master is passing tests. Which means you should always have a green build.
 </div>
 
 ---
 
-# Agile/Lean/Scrum as Continuous Improvement
+# Small Diffs
 
-- * Reserve time for improvement
-- * Embrace a workflow system
-- * Humane postmortem
+- less then 200 lines
+- Big change, lots of small chunks
 
 <div class='notes'>
-## reserve time for improvement
+When you ship small diff's you'll get better feedback. You're team mates we'll be able to respond promptly to code reviews. You'll break fewer tests, and be able to react to change better.
 
-If you fully utilize the time of a team with features you'll never improve the system. And, if carried on as-infinity you'll probably end up with so many bugs that you'll team will never work on feature.
+Even if you aren't sold on this idea, try it out. Experiement in your own commits. See how it affects the way you architect change.
+</div>
 
-So, it helps a lot if you reserve a portion of each sprint to do nothing but improve the system.
+---
 
-## embrace a workflow system
+# Code Review
 
-Agile, scrum, kanban are all systems that help you manage work through a system. They help you visualize the work as it flows.
+- At worst it's peer presure
+- At best it's a learning experience.
 
-I really like retrospectives for their ability to help look back in the near past and figure out wheat you can do better.
+<div class='notes'>
+Sometimes we need a little push to add an extra test. Sometimes it can help to know we have an audience.
 
-## humane postmortem
+Code review can be implmented without significnt changes to your workflow. If you are looking for somewhere to start, this is a great step.
+</div>
 
+---
+
+# Automated Deployments
+
+- 1 button, or command line
+- Make them normal, non-fear enducing events
+
+<div class='notes'>
+A good rule of thumb here is: If you are doing anything more then clicking a button, or running one command to deploy code to production then you aren't doing automated deployments.
+
+The goal here is to take something that is an event, and turn it into a non-event.
+</div>
+
+---
+
+# Gracefull Restarts
+
+- Deployments should not disrupt any user behavior
+- This takes some thinking
+- Lot's of tooling available for all conrner cases
+
+<div class='notes'>
+Now that you can deploy anytime you want, you want to make sure that when you deploy you don't disrupt the users experience.
+
+Your users are probably interacting with your website, which means they have an open connection to your app. If you just restart the app you will break that connection, and your users will see that.
+
+You'll need to find a way to keep connections open, and seamlessly flow from one version to the next. Whatever language, or stack you are using their is a way to do gracefull restarts.
+</div>
+
+---
+
+# Feature Flags
+
+- Seperates deployment risk, from release risk
+- Allows trunk/master based development
+- Can be an incredible operations tool
+
+```
+if (feature_flag_enabled('new-feature')) {
+  ...Do new thing ...
+} else {
+  ...Do existing thing...
+}
+```
+
+<div class='notes'>
+A recommended technique is to do trunk based deployments, every developer commits directly to trunk, and every commit to trunk is a release caniadate. Before you can do that you'll need to be able to disable or hide partial work.
+
+A feature flag is way provide runtime configuration for your app.
+
+This way you can hide new features until your organization is ready to release it. It also allows you to continuously deploy code to production without fear of accidentally turning on new features.
+
+Many organization, once they have implmented feature flags, realize that they can use them as an operatons tool. For instance, you could implment a switch that turns off less important features if your website is under stress freeing capacity for more imporant functionality.
+</div>
+
+---
+
+# Do agile/lean/scrum/something...
+
+- Visualize work in progress
+- Helps with reflection
+
+<div class='notes'>
+Many of the practices I have talked about relate to how you can continuously improve a website, or a prouct. Something like Agile allows you to use the same techniques to continuously improve a team of people.
+</div>
+
+---
+
+# Product Validation
+
+- Ask what success looks like
+- Ship small diffs to production
+- Show early prototypes to real users using feature flags
+- Stop, or change if success isn't happening
+
+<div class='notes'>
+Instead of planning, building, shipping, and announcing an entire feature. Identify some early adopters. Push the most simple version to production and turn it on just for them.
+
+This will help you to identify blockers you couldn't think of, change course if you are off the mark, and ultimatley, it will help your organization not waste time and investment.
+
+If you can prevent a company with 10 developers being paid roughly dollars a month from spending an extra 3 months on a project that isn't going to work out you are save the company a lot of money. Money that could be better spent on features that will work.
+</div>
+
+---
+# Value Stream mapping
+
+- Know the steps from idea to production
+- Evaluate the value derrived form each step
+- Remove steps that don't produce value
+
+![Value stream mapping](http://philcalcado.com/img/2015-09-7-constraints/vm1.png)
+
+<div class='notes'>
+Value stream mapping is something you can do to evaluate every step an idea takes from inception to production. This allows you to identify inefficencies in the process.
+
+By mapping out the process you can then ask the question, does this step, which takes a week, increase the value of the idea? If it doesn't think about cutting the step.
+</div>
+---
+
+# Humane Postmortems
+
+- A postmortem is a chance to learn from an unintentional experiment
+- Seek to understand not blame
+
+
+<div class='notes'>
 A postmortem is a chance to learn from an unintentional mistake.
 
-Treat them as an opportunity to learn more about the system and how work gets done.
+Treat them as an opportunity to explore how your organization actually works you might be suprised by what you find.
+</div>
+
+---
+
+# Reserve Time For Improvement
+
+- Entropy guaranttees things degrade over time
+- You can keep up, if you slot time for it
+- Getting better, at getting better can be a competetive advantage
+
+
+<div class='notes'>
+Things naturally degrade overtime, if you don't spend time making things better, you will be fated to work on nothing but the failures. So, make sure you reserve time to make things better.
+
+And, this doesn't just apply to features, or the end production. If you continually work on getting better, you'll find that you can get better faster. Which could be a competative advantage.
 </div>
 
 ---
@@ -493,25 +573,17 @@ Treat them as an opportunity to learn more about the system and how work gets do
 ![Continuous Deliver maturity model](https://cdn.infoq.com/statics_s2_20170221-0307u1/resource/articles/Continuous-Delivery-Maturity-Model/en/resources/fig1large.jpg)
 
 <div class='notes'>
-http://bekkopen.github.io/maturity-model/
-
-https://github.com/garystafford/cd-maturity-model
-
-http://code-maturity.praqma.com/delivery-pipeline/
-
-https://www.linkedin.com/pulse/mature-maturity-model-continues-delivery-including-culture-norm%C3%A9n
-
-https://developer.ibm.com/urbancode/docs/continuous-delivery-maturity-model/
-
+This is a continuous delivery maturity model. You can google it there are many out their. They all provide a way to see where you stand. From their you can decide what you'd like to do next.
 </div>
 
 ---
 
-# Examples of CI
+# Examples of CI are many
 
-- Small, one person, on purpose
-- Open source
-- Medium to big team
+- Small: one person, one purpose projects
+- Big: Google has 1 code repo, Amazon deploys ever 11 seconds
+- Open source: Django, Wordpress, Drupal
+
 
 <div class='notes'>
 Anytime you are doing anything more then just writing code on scratch paper, I belive that you will benefit from CI and CD.
@@ -523,7 +595,8 @@ So, I'm going to talk take a look at a few projects of varying sizes.
 
 # Small CI/CD
 
-[this presentation]
+This presentation
+https://bepress-ci-presentation.netlify.com/
 
 <div class='notes'>
 This presentation exists at this URL, and is actually continuously deployed.
@@ -537,20 +610,18 @@ I used a service called netlify, that would actually build this presentation bas
 
 ---
 
-# Pystrainer
+# Small Open Source Pystrainer
 
 ![pystrainer https://github.com/voidfiles/strainer](https://www.dropbox.com/s/ohydd87vlq62l0v/ZM3V.png?raw=1)
 
 <div class='notes'>
 Pystrainer is a small python library that I created.
 
-I was frustrated by exisiting serializer, and deserializers in python. They were mainly class based, and all suffered from performance issues.
+I was frustrated with exisiting serializer and deserializers in python. They were mainly class based, and all suffered from performance issues.
 
 I thought there was a way you could speed up serializers.
 
 As I developed the library I wanted to make sure that I didn't regress on speed.
-
-So, now. Every time I bump a version I just have to commit to the repo and the whole website is regenerated including the benchmarks.
 </div>
 
 ---
@@ -575,13 +646,19 @@ I don't have to remember how to generate this site, I just need to commit.
 - Bug fixes from weeks to days or hours
 
 <div class='notes'>
-At bepress we re-wrote SelectedWorks. As, it was basically a greenfield project. I made sure early in my tenure to implement CI, and CD.
+At bepress we re-wrote a product of our called SelectedWorks. SelectedWorks allows authors to create compelling online scholarly identities.
 
-We used it to quickly iterate during dev, but after we shipped the re-write we just kept shipping code, and in the first couple of months of shipping we were deploying code over 100 times a month.
+Becase, it was a full rewrite it was basically a greenfield project. I made sure early in my tenure to implement CI and CD.
+
+We used it to quickly iterate during dev. Even when we were deploying just to internal stakeholders it was usefull. Because, as soon as we committed something it would get shipped to an integration server. Our product manager could see daily progress.
+
+After we released the re-write we just kept shipping code.
+
+The first couple of months of shipping we were deploying code over 100 times a month.
 
 Last year alone we shipped code to production about 800 times, with a change error rate below 1%.
 
-We've found that bugs can be fixed in hours, and we brought feature development time down from a couple months to a couple weeks.
+We've found that bugs can be fixed in hours instead of days or weeks, and we brought feature development time down from a couple months to a couple weeks.
 </div>
 ---
 
@@ -592,20 +669,21 @@ We've found that bugs can be fixed in hours, and we brought feature development 
 - We are in the process of implementing CI.
 
 <div class='notes'>
-bepress has two main products. SelectedWorks, and Digital Commons. DigitalCommons has been around in one form or another for about 16 years.
+bepress has two main products. SelectedWorks and Digital Commons. DigitalCommons has been around in one form or another for about 16 years.
 
 I joined bepress to work on the SelectedWorks re-write, after it was released I also continued to work on features for SelectedWorks.
 
-As time went on though I realized that SelctedWorks, and DigitalCommons are really connected, and DigitialCommons wasn't benefitting from the rapid release cycle the SelectedWorks had.
+As time went on though I realized that SelectedWorks, and DigitalCommons are highly intertwined, and DigitalCommons wasn't benefitting from the rapid release cycle the SelectedWorks had.
 
 So, Even though I had no intention of working on a Perl app, I turned my attention to DigitialCommons.
 
-We are currently in the process of doing CI, and CD for this applicaiton. We've had some success, but we are not done. But, I can tell that this is doing good things.
-
+We are currently in the process of doing CI, and CD for this application. We've had some success, but we are not done. But, I can tell that this is doing good things.
 </div>
 ---
 
-# continuous, all the things
+# Continuous: All The Things
+
+![Continuous All the things](https://i.imgflip.com/1ltl84.jpg)
 
 <div class='notes'>
 In closing I'd like to re iterate. The ideas are simple. If you can understand the core principals at work here you can design a continuous proceeds that is right for your project.
