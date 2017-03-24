@@ -7,55 +7,25 @@ Alex Kessinger, Software Architect @ bepress
 Hi, My name is Alex Kessinger. I am a software architect at bepress. Today, I want to talk about how continuous integration and delivery can accelerate your product.
 </div>
 
-
----
-
-# What is the goal?
-
-Deliver value to our users.
-
-
-<div class='notes'>
-This is the developer track at the Open Repositories conference in 2017.
-
-I'll guess that none of us are working on Boeing guidance systems or heart monitors.
-
-You are probably building a website or an app.
-
-Somewhere our their is a human and they are trying to use your software … too do something.
-
-If we are unlucky, that user is quietly resenting their computer and wishing their boss had bought something else.
-
-If we are doing okay they might not even notice our software.
-
-If we are doing great, they might love using our software.
-
-Our goal is deliver something valuable to our users, and be at least okay if not great at it.
-
-I think this is a reasonable goal that can be shared by a whole organization.
-
-As we beging to talk about CI and CD we should keep that goal in mind, because everytool can be misued if it is used for the wrong reason.
-</div>
-
 ---
 
 # Agenda
 
-- A shared organizational goal
-- The value your organization delivers
-- The risks of value delivery
-- Science as risk mitigation
-- How CI and CD helps
+- A Shared Goal
+- The Value You Make
+- The Risks To Value
+- Science as Risk Mitigation
+- How CI and CD Helps
 - Examples
 
 <div class='notes'>
-Here is the agenda for the talk.
+This is the rough form of my talk today.
 
-We've already talked about what the goal is.
+First, I am going to explain what the goal is.
 
 Next, I want to talk about what value might look like, and what might be blocking you from delivering value to your users.
 
-Then, I want to talk about how you can mitigate the risk of delivery.
+Then, I want to talk about how you can mitigate the risks of value delivery.
 
 After that we are going to look at how the ideas of CI/CD provide tools for mitigating risk.
 
@@ -73,11 +43,40 @@ Finally, I'll talk a little bit about nuts and bolts of CI/CD, and I can talk a 
 - There is so much out there, just start reading.
 
 <div class='notes'>
-Before we start, I want to credit a large number of people in helping me develop the ideas behind this talk.
+Before we start, I want to credit a large number of sources in that inform this presentation.
 
-The ideas in this talk come from a long lineage of researchs and practitioners reaching all the way back to the early 1900s.
+The ideas come from a long lineage of researchers and practitioners reaching all the way back to the early 1900s.
 
-Principally, I think these 3 books have had the most influence on me, but it's a synthesis of experimentation and reading.
+Principally, I think these 3 books have had the most influence on me, but it's a synthesis of experimentation, reading, and listening.
+</div>
+
+---
+
+# What is the goal?
+
+Deliver value to our users.
+
+
+<div class='notes'>
+This is the developer track at the Open Repositories conference in 2017.
+
+I'll guess that none of us are working on Boeing guidance systems or heart monitors.
+
+You are probably building a website or an app.
+
+Somewhere our their is a human and they are trying to use your software … too do something.
+
+That user is possibly quietly resenting their computer and wishing their boss had bought something else.
+
+Probably, though, they don't even notice our software.
+
+If we are doing great, though, they might love using our software.
+
+Ultimatley, our goal is to deliver something valuable to our users and be at least invisible if not great at it.
+
+This is a reasonable goal that can be shared by a whole organization.
+
+As we beging to talk about CI and CD we should keep that goal in mind, because everytool can be misued if it is used for the wrong reason.
 </div>
 
 ---
@@ -87,14 +86,14 @@ Principally, I think these 3 books have had the most influence on me, but it's a
 - New features
 - Preservation of existing features
 - Availability
-- Usable
+- Usablability
 
 <div class='notes'>
-The value that each organization deliveries to it's users will be different, but there are some comonalities.
+The value that each organization deliveries to it's users will be different, but there are some commonalities.
 
-I think these are some of, but not all of the things your organization does to create value for your users.
+These are some of, but not all of the things your organization does to create value for your users.
 
-So, given that we know our goal is the delivery of value. I am sure that…
+Given that our goal is the delivery of value. I am sure that…
 </div>
 
 ---
@@ -111,7 +110,7 @@ you would use these statments to describe your company, right?
 
 …
 
-Of course not, no one can deliver software 100% correctly all the time.
+Of course not, no one can deliver on these statements.
 </div>
 
 ---
