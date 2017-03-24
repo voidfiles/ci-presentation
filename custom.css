@@ -7,7 +7,7 @@
 .reveal h5,
 .reveal h6 {
   margin: 0 0 15px 0;
-  color: #586e75;
+  color: #555;
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   line-height: 1.2;
@@ -35,4 +35,10 @@
   font-family: 'Open Sans', sans-serif;
   font-size: 40px;
   font-weight: normal;
-  color: #657b83; }
+  color: #555; }
+
+
+body {
+  background: #C1E1EC;
+  background-color: #C1E1EC;
+}

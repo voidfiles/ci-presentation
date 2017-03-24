@@ -115,10 +115,8 @@ $if(overview)$
         // Enable the slide overview mode
         overview: $overview$,
 $endif$
-$if(center)$
         // Vertical centering of slides
-        center: $center$,
-$endif$
+        center: false,
 $if(touch)$
         // Enables touch navigation on devices with touch input
         touch: $touch$,
