@@ -72,10 +72,10 @@ Finally, I'll talk a little bit about nuts and bolts of CI/CD, and I can talk a 
 - Countless blog posts, youtube videso, and conversations, and years of practice.
 - There is so much out there, just start reading.
 
-<div class="notes">
+<div class='notes'>
 Before we start, I want to credit a large number of people in helping me develop the ideas behind this talk.
 
-The ideas in this talk come from a long lineage of researchs and practitioners reaching all the way back to the early 1900's.
+The ideas in this talk come from a long lineage of researchs and practitioners reaching all the way back to the early 1900s.
 
 Principally, I think these 3 books have had the most influence on me, but it's a synthesis of experimentation and reading.
 </div>
@@ -94,7 +94,7 @@ The value that each organization deliveries to it's users will be different, but
 
 I think these are some of, but not all of the things your organization does to create value for your users.
 
-So, given that we know our goal is the delivery of value. I am sure that...
+So, given that we know our goal is the delivery of value. I am sure that…
 </div>
 
 ---
@@ -109,7 +109,7 @@ So, given that we know our goal is the delivery of value. I am sure that...
 <div class='notes'>
 you would use these statments to describe your company, right?
 
-...
+…
 
 Of course not, no one can deliver software 100% correctly all the time.
 </div>
@@ -123,7 +123,7 @@ Of course not, no one can deliver software 100% correctly all the time.
 * Software Bugs
 * Capacity and Performance issues
 
-<div class="notes">
+<div class='notes'>
 You just won't be succesfull 100% of the time.
 
 Risk prevents us from achieving the goal of value delivery.
@@ -165,7 +165,7 @@ The only certain thing is uncertainty.
 
 We are faced everyday with the risk that what we are working on won't work.
 
-But, We still have to create value.
+We still have to create value, though.
 
 Not everyone is going to combat risk the same way, but I think there is a model that many organizations can use, and it's been around for 100s of years.
 </div>
@@ -177,7 +177,7 @@ Not everyone is going to combat risk the same way, but I think there is a model 
 An example: Feature Delivery
 
 <div class='notes'>
-Let's take a very common task in most development enviornment the delivery of a feature.
+Let's take a common task in most development enviornment the delivery of a feature.
 
 Let's say we want our feature to be a success, and we don't want to risk failure. We are going to do everything we can possible do to ensure success.
 
@@ -216,7 +216,7 @@ At each point:
 - We are increase our chance of success because of feedback
 - We are decreasing the risk that our feature will be a failure
 
-At the end of the day, even if this feature didn't work out we protect our abilit to deliver value to users, by freeing up room for other features that will work.
+Even if this feature didn't work out we protect our abilit to deliver value to users, by freeing up room for other features that will work.
 
 Basically, I am describing the scientific method.
 </div>
@@ -282,18 +282,18 @@ When it comes to how you run an experiment, every organization will figure out t
 
 For instance, if you were writing a Heart Monitor, or the guidance system for a boeing Jet. I'm not sure I would recommend a continuous delivery method.
 
-But, none of use ar. So, let's experiement.
+None of use are. So, let's experiement.
 
 I think the best place to experiment is in production. That's where real data, and real users are, so to get valid results, we probably need to get results from production.
 
-But, this means that you can only experiment as fast as you can ship. If your organization only does that once a month, or once a week. That is how long it takes you to experiment.
+This means that you can only experiment as fast as you can ship. If your organization only does that once a month, or once a week. That is how long it takes you to experiment.
 </div>
 
 ---
 
 # A Note on Cycle time
 
-> "Pushing your organization to drop cycle time to less then 1 hour is a forcing function for adopting Devops ... In other words, if your cycle time is an hour or less you are probably doing Devops." - Dave Farley author of Continous Delivery book
+> “Pushing your organization to drop cycle time to less then 1 hour is a forcing function for adopting Devops … In other words, if your cycle time is an hour or less you are probably doing Devops.” - Dave Farley author of Continous Delivery book
 
 <div class='notes'>
 Cycle time is an amazing metric. It literally measures the cadence or your organization. If your cycle time is 3 months, you can only improve things every 3 months.
@@ -359,7 +359,7 @@ The principals of CI, CD and DevOps are the ideas of cycle-time, fast feed back,
 
 I intentional spent a lot of time breaking down the principals first, because I can only show so much in one talk. But, if these core principals reasonate with you, you can start experimenting in whatever way you think is best for your organization.
 
-But, if you are anything like me, you want to know what others are doing.
+If you are anything like me, you want to know what others are doing.
 </div>
 
 ---
@@ -372,7 +372,7 @@ But, if you are anything like me, you want to know what others are doing.
 - Automated Deployments
 - Gracefull Restarts
 - Feature Flags
-- Do agile/lean/scrum/something...
+- Do agile/lean/scrum/something…
 - Product Validation
 - Value Stream mapping
 - Humane postmortem
@@ -402,7 +402,7 @@ Also, If you have an existing code base, you can do this slowly. First, create a
 
 # Fast unittests
 
-- 10 minutes max (should be alot faster)
+- 10 minutes max (should be a lot faster)
 - Should be run on every merge to master
 - If possible, run before merge via something like a PR
 
@@ -479,9 +479,9 @@ You'll need to find a way to keep connections open, and seamlessly flow from one
 
 ```
 if (feature_flag_enabled('new-feature')) {
-  ...Do new thing ...
+  …Do new thing…
 } else {
-  ...Do existing thing...
+  …Do existing thing…
 }
 ```
 
@@ -497,7 +497,7 @@ Many organization, once they have implmented feature flags, realize that they ca
 
 ---
 
-# Do agile/lean/scrum/something...
+# Do agile/lean/scrum/something…
 
 - Visualize work in progress
 - Helps with reflection
@@ -535,7 +535,7 @@ If you can prevent a company with 10 developers being paid roughly dollars a mon
 <div class='notes'>
 Value stream mapping is something you can do to evaluate every step an idea takes from inception to production. This allows you to identify inefficencies in the process.
 
-By mapping out the process you can then ask the question, does this step, which takes a week, increase the value of the idea? If it doesn't think about cutting the step.
+By mapping out the process you can then ask, does this step, which takes a week, increase the value of the idea? If it doesn't think about cutting the step.
 </div>
 ---
 
