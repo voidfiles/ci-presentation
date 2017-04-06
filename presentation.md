@@ -1,49 +1,496 @@
-
-# How Continuous Integration and Delivery can accelerate your process
+# How Continuous Integration and Delivery can accelerate your product
 
 Alex Kessinger, Software Architect @ bepress
 
 <div class='notes'>
-Hi, My name is Alex Kessinger. I am a software architect at bepress. Today, I want to talk about how continuous integration and delivery can accelerate your product.
+Hi, My name is Alex Kessinger. I am a software architect at bepress. Today, I want talk about how bepress uses continuous integration and delivery to speed up product development, and how you can do the same.
 </div>
 
 ---
 
-# Agenda
-
-- A Shared Goal
-- The Value You Make
-- The Risks To Value
-- Science as Risk Mitigation
-- How CI and CD Helps
-- Examples
+![bepress](/images/bepress.png)
 
 <div class='notes'>
-This is the rough form of my talk today.
+bepress is located in Berkeley, California. The company employees about 100 people, but the dev team is a small portion of that. Most are pictured here. I'm on the TV screen becuase myself and a couple others work remoteley.
 
-First, I am going to explain what the goal is.
+Bepress has two main products. SelectedWorks, and Digital Commons.
 
-Next, I want to talk about what value might look like, and what might be blocking you from delivering value to your users.
+Digital Commons is a hosted instituion repository.
+Selected Works is like a hosted linkedin for the academic commuity at an insitution.
+</div>
 
-Then, I want to talk about how you can mitigate the risks of value delivery.
+---
 
-After that we are going to look at how the ideas of CI/CD provide tools for mitigating risk.
+# Defenitions
 
-Finally, I'll talk a little bit about nuts and bolts of CI/CD, and I can talk a little about my experince with it.
+- Continuous Integration
+- Continuous Delivery
+
+<div class="notes">
+Let's start with some defenitions. Even if you already know when these means, I think it's helpful to be on the same page before we start.
+</div>
+
+---
+
+# Continuous Integration
+
+> Continuous Integration (CI) is a development practice that requires developers to integrate code into a shared repository several times a day. Each check-in is then verified by an automated build, allowing teams to detect problems early. <br> - [Continuous Integration: Improving Software Quality and Reducing Risk](https://www.amazon.com/gp/product/0321336380)
+
+<div class="notes">
+- read slide
+</div>
+---
+
+# Continuous Delivery
+
+> Continuous Delivery (CD) is the ability to get changes of all types—including new features, configuration changes, bug fixes and experiments—into production, or into the hands of users, safely and quickly in a sustainable way. <br> - [Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation](https://www.amazon.com/dp/0321601912)
+
+<div class="notes">
+- read slide
+</div>
+
+---
+
+# My CI Background
+
+- Yahoo: 6 distinct teams/projects
+- Mixed Media Labs: 4 pivots
+- All Day
+
+<div class="notes">
+About 2 and a half years ago I joined bepress to work on the rerwite of SelectedWorks.
+
+Since I joined we have take steps to implment continuous integration and delivery for SelectedWorks. Before I joined there were bits and pieces of CI and CD, but they weren't tied together into a continuous process for delivering value to users.
+
+The biggest reason I wanted to implment CI and CD at bepress, was largely based on my experiences at these 3 companies.
+
+So, to explain how we developed our process at bepress I think it helps to understand how I came to understand it at other companies.
+</div>
+
+---
+
+# Yahoo
+
+- My first "real" job
+- Hard to understand the vision
+- Hard to see my impact
+
+
+<div class="notes">
+Yahoo, was my first real job. I worked with some great people and I had some great managers. While Yahoo gave me a foothold.
+
+Unfortunatley, the most important thing I learned from Yahoo was how not to do things.
+
+At Yahoo, I never undrestood the vision of the company or the teams I worked on, and I never saw how my impact contributed to the bottom line.
+</div>
+
+---
+
+# Side Projects
+
+- 5-6 fully baked projects
+- Learned how to automate deployments
+- Code not shipped is value lost
+
+<div class="notes">
+While I worked at Yahoo though, I had a number of side projects.
+
+I didn't have lot of time to work on them. Often, I would spend a couple hours building a new feature. Then forget how to deploy the website.
+
+Usually that meant that I wouldn't deploy the site. So, the feature I had just built, would sit on my computer. Who was that helping? It wasn't helping me, or the user, and it was increasing the risk that I would break something.
+
+So, there are 2 major take aways for me during this time.
+
+First, I started automatting deployments. So, as soon as I was done with the feature I ran one script and the website was deployed.
+
+Second, I learned that I got better feedback if I released early. This allowed me to spend more time on features that made the sites grow. The longer I let features sit on my computer, the less valuable they were, and the more likely they were to break the website if I shipped them later.
+</div>
+
+---
+
+# Mixed Media Labs
+
+- automated deployments, but no CI
+- Evolved to have CI and CD
+- Moved very fast
+
+<div class="notes">
+After Yahoo, I worked at Mixed Media labs. It was the exact opposite of Yahoo. It was small and young, the company was less then 6 months old when I joined.
+
+But, it wasn't perfect either.
+
+In the begining we had automatted deployments, but I had to ask someone to deploy my code.
+
+Usually that person was busy and wouldn't deploy things right away. This caused a number of issues.
+</div>
+
+---
+
+# MML: Flow Improvements
+
+- Focused on user value
+- Introduced code review
+- Lint and tests must pass
+- Self service deploys
+- Small diffs
+
+<div class="notes">
+But, because the company was focused on building value for users, shipping code to users quickly was a priority.
+
+In a short amount of time we changed the flow to make it more continuous.
+
+First, we created a code review step, with a tool called Gerrit.
+
+The first review was automated. A CI server would run all the tests and lint checks. If those failed, you knew to fix those before asking a human to do a code review.
+
+Once lint, and tests had passed you would ask a co-worker to checkout out your code.
+
+Once the code was reviewed, it was automatically deployed to a staging server. And, then it was our job as developers to do what we needed to have confidence in our changes and then ship to production.
+
+Lastly, partly because we knew we could ship code to production at anytime, and partly because it was a convention, we shipped code in smaller chunks, like less then 300 lines. This improved code review quality, and it reduced the risk that we were going to break something.
+
+All these changes gave us an immense capacity for developing features, and that directly contributed to the bottom line.
+</div>
+
+---
+
+# App.net
+
+- Last project at Mixed Media Labs
+- We launched it like a kickstarter
+- Set bar at 10,000 users commiting $50
+- 30 Day window
+
+<div class="notes">
+No where did our process demonstrate the most buisness value as it did on the last project mixed media labs built. That project was App.net. A paid social network platform.
+
+Building it was a risky proposition, so we wanted to gauge user interest before built the whole thing.
+
+We ended up building Kickstarter-like site, and If 10,000 users committed $50 with 30 days. We would launch the service.
+</div>
+
+---
+
+# We Made It
+
+- Started building immediately
+- Reached alpha after 2 weeks
+- Hit goal and raised around $750k
+
+<div class="notes">
+We made it, and one of the many reasons for that was our continuous process.
+
+We started building the product as soon as we announced the project. We shipped small amounts of code constantly.
+
+After two weeks we started letting some users in to kick the tires. By the end of the initial fundraising we had raised almost 750k, and we became generally avaiable soon afterwards.
+
+</div>
+---
+
+# App.net: Just ship!
+
+Having a continuous, ship early, ship often organization directly contributed to the bottomline by delivering value to users just in time.
+
+<div class="notes">
+The biggest take away from app.net was...
+</div>
+
+---
+
+# All Day: Photo Essays
+
+![AllDay](/images/allday.png)
+
+<div class="notes">
+The next place I worked at was called AllDay. The plan was to create a site of Photo Essays. I joined AllDay near the begining as the VP of Engineering.
+</div>
+
+---
+
+# All Day: What I knew
+
+- 3 audiences: readers, publishers and editors
+- Distinct product for each audience
+- Expected a large number of readers
+- 0 existing infrastructure
+- 1 engineer (me)
+
+<div class="notes">
+The core value propositon of All Day was something that I had been preparing for for a number of years. I shared a vision with the founders, and had a strong plan for how to build all the tools that were were goign to need.
+
+It was a tall order.
+
+... Go over the bullit points.
+</div>
+
+---
+
+# All Day: Order of Operations
+
+- Step 1: Install Jenkins
+- Step 2: Setup CI
+- Step 3: Setup CD
+- Step 4: Build applications
+
+<div class="notes">
+Given the buisness requirements and my experiences with CI, I knew the order of operations.
+
+I wanted the infrstructure required to ship code to production first, and then I would start building the aplication.
+</div>
+
+---
+
+# All Day: Success
+
+- We launched in 3 months
+- With 3 distinct interfaces
+- At peak we did 300 RPS
+
+<div class="notes">
+And, it worked out, mainly because of the continuous process.
+
+We launched in less then 3 months to and audience of almost 100,000 unique visitors a day, and at peak times we did almost 300 requests per second.
+
+In those 3 months I was joined by 2 other engineers. Who became productive almost immediatly. They setup their dev box, I showed them how to run tests, and how to ship to production and that was it. They could contribute code on their first day.
+</div>
+
+---
+
+# Back to bepress
+
+- 16 year history
+- Lot's of happy customers
+- Wanted to speed up feature developement
+
+<div class="notes">
+Now, back to bepress. bepress is about 16 years old, and they have had a SaaS buisness almost the whole time.
+
+They have many happy customers, but in 2013 they decided to rewrite SelectedWorks.
+
+As I said, I joined bepress late in the SelectedWork rewrite.
+</div>
+
+---
+
+# SelectedWorks: Small Issues
+
+- Tests, but no CI
+- Deployments, but no CD
+- Project was behind schedule
+- Overbudget
+
+<div class='notes'>
+No team is perfect, and SelectedWorks was no different, but there were some small problems that were preventing us from moving quickly. And, they all sounded a little familiar.
+
+Tests ran on a schedule, which means that people would check in code, and they wouldn't know that they broke something until a day later. By that time, many people had commited and it wasn't clear what broke the tests.
+
+There were no regular deployments. The rewrite was happening internally, only internal stakeholders could see it, so the thought was there was no one to deploy too.
+
+It was also overbudget and over schedule.
+</div>
+
+---
+
+# What We Did
+
+- Hypothesize about a problem
+- Propose an experiement
+- Run experiment, and ask if it helped
+
+<div class="notes">
+The short answer is the we adopted continuous integration and delivery, but the longer answer is more nuanced. As we articulated a given problem, we would fix it.
+</div>
+
+---
+
+# Fast Feedback
+
+- 3 developers
+- Tests ran, sometimes
+- We needed a traffic cop
+- Soluton: **Code Review && Pre-commit step**
+
+<div class="notes">
+One issue we ran into often was users commiting code that would break the tests, and they wouldn't know that. Then a number of checkins would happen and no one would know who broke the tests. So, we introduced a pre-commit phase in our code flow.
+
+It was an early experiement that created alot of value for us because it created a fast feedback cycle.
+
+For us this mean't that all code destined for the master branch was sent as a Github Pull Request. Anytime a PR is created we would have Jenkins lint all the code, and run all the unit tests.
+
+Then a user would request a code review.
+
+When the reviewer was done, the code would be committed to the master branch.
+
+This prevented us from unknowingly breaking the tests. It also reducded the burden on the code reviewer because they could focus on the substance of the code instead of looking for style violations.
+</div>
+
+---
+
+# Easy Deployments
+
+- Staging was out of sync
+- Developers demoed off dev box
+- Feedback was hard to give
+- Solution: **automatic deployments to staging**
+
+<div class="notes">
+Another problem we ran into is the lack of deployments. Because SelectedWorks was a re-write, and we didn't really have an audience, deployments to a staging server were rare.
+
+Developers would often just walk their laptop over our product manager and demo the code.
+
+As, we approached the release date, we wanted to have a more production like release flow. So, we automatted deployments, and we made them automattic in some cases.
+
+Anytime code was committed to master, we would automatically deploy to staging.
+
+This allowed our internal stakeholders to really use the features we were building, and deliver high quality feedback.
+</div>
+
+---
+
+# SelectedWorks: Next Generation
+
+![New Selected Works](/images/selected_works_new.png)
+
+<div class='notes'>
+In Janauary of 2016 we shipped SelectedWorks: Next Generation, it wasn't an easy release, but we did it.
+
+And, customers were happy.
+
+But, we had issues.
+
+This release capped off a 3-year rewrite from the ground up, issues were to be expected.
+</div>
+
+---
+
+# Tooling to the rescue
+
+- Shipped code 3 to 10 times a day
+- Things got better rapidly
+- But, should we keep shipping?
+
+
+<div class="notes">
+But, our tooling came to our rescue. As quickly as we uncovered issues we were able to push the fix into production.
+
+We were often pushing code upto 10 times a day. In a given week we might have pushed code to production 100 times, but our product team started asking us a question.
+</div>
+
+---
+
+# Why Continuous?
+
+- Seemingly no control of feature release
+- Percieved lack of "QA"
+- How will users feel about changes
+- Keeping users informed about product updates
+- Documentation not keeping up
+
+<div class="notes">
+They wanted to know why we had to keep shipping. Even after we had squashed all the bugs, they wanted to know why we couldn't just go back to periodic releases instead of continuous.
+
+And, from their perspective I think this made sense.
+
+They wanted to have control over the release of features. They wanted to ensure the quality of our products. They were also worried about how they would keep users up to date if we were releasing so often.
+
+So, I asked another question?
+</div>
+
+---
+
+# Why (Not) Continuous?
+
+- The goal is to deliver value to users.
+- Risk prevents us from delivering value to users.
+- The only certain thing is uncertainty
+- Least risky strategy ship small bits continuously
+
+
+<div class='notes'>
+If our goal is to deliver value to our users, then any feature that we have built, but have not released isn't returning on our investment in the feature.
+
+Furthermore, if we save a bunch of code to be deployed at once, their is a bigger risk that any given deploy will fail.
+
+And, add on top of that the fact that we don't have the ability to release continuously, we can't really test new features in production before we release them widley, we are missing out on a golden opprtunity to do producto validation.
+
+Instead of looking at the continuous process as the risk, we need to look at all the risk involved in building a product, and minmize that risk.
+
+So, we begain the look at each issue our production team had, and design a soluton that worked for them, and for us.
+</div>
+
+---
+
+# The Quality Issue
+
+- Move quality to the front
+- Small Diffs
+- QA in depth
+
+<div class="notes">
+The first issue we had to look at was, how do we ensure the quality of our sotware in a continuous process. The first question that came up was, why not have everything checked by a human QA engineer before releasing.
+
+To be clear, having humans do QA is a great thing, but if your engineering team has a high degree of confidence that something is unit-testable, then do you need a human to QA each release? This is different for every organization, but for us the answer was no.
+
+But, we needed a way to make that decsion before we started on the work, and not after.
+
+We realized that as we planned out the feature, at the ticket writing stage, we could move a lot of work to a point before the engineer wrote any code. And, it made things better.
+
+So, instead of deciding on how to QA something after the feature was written, we would decide the QA process when we wrote the ticket. We've started moving other things to the front of the line as well. And, it's had this knock on effect of having QA in depth.
+
+We have a range of strategies for Quality assurance from developers testing stuff, to havign a full suite of QA from  a human, but we decide upfront what our process will be. Even moving things like updates, and docs up front could have an effect on quality because it made sure everyone was on the same page.
+</div>
+---
+
+# The Feature Release Issue
+
+- Seperated code deployment, and feature deployment
+- Allows trunk/master based development
+
+```
+if (feature_flag_enabled('new-feature')) {
+  …Do new thing…
+} else {
+  …Do existing thing…
+}
+```
+
+<div class="notes">
+The next thing we tackled was feature release. The way that we did this was we seperate our code deployment process from our feature deployment process.
+
+This allows the engineers to continuously deploy code to production, but the buisness get's to decide when to release a feature.
+
+This also helps us in QA. We can ship all the code for a big feature to production. Then flip it on just for QA, in production sometimes. Where they can test it on real data in the exact same environment as our user. When they are happy, the feature release is just the flip of a switch.
+</div>
+
+---
+
+# Moving Forward
+
+- Generally happy with CI/CD
+- Feature development time from months to weeks
+- Bug fix from weeks to hours
+- Working on expanding CI/CD to other apps
+
+<div class="notes">
+bepress is generally happy with CI, and CD. We are still experimenting with ways to make it better, but I am sure that will continue forever.
+
+In general, CI and CD have helped us speed up feature development, and bug fixes.
+
+We think that it's helpfull enought, that we are in the process of trying to do CI, and CD with our oldest application called Digital Commons. We just recently started doing weekly released instead of quarterly releases, and things are working out well so far.
 </div>
 
 ---
 
 # Credit
 
-- Jez Humble author of Continuous Integration
-- Dave Farley author if  Continuous Delivery
-- The Phoneix project by Gene Kim
-- Countless blog posts, youtube videso, and conversations, and years of practice.
+- Continuous Integration
+- Continuous Delivery
+- The Phoneix Project
+- Countless blog posts, youtube videos, and conversations.
 - There is so much out there, just start reading.
 
 <div class='notes'>
-Before we start, I want to credit a large number of sources in that inform this presentation.
+Before I finish, I want to credit some sources that inform this presentation, these are just a few.
 
 The ideas come from a long lineage of researchers and practitioners reaching all the way back to the early 1900s.
 
@@ -52,31 +499,18 @@ Principally, I think these 3 books have had the most influence on me, but it's a
 
 ---
 
-# What is the goal?
+# Continuous: All The Things
 
-Deliver value to our users.
-
+![Continuous All the things](https://i.imgflip.com/1ltl84.jpg)
 
 <div class='notes'>
-This is the developer track at the Open Repositories conference in 2017.
+In closing I'd like to re iterate. The ideas are simple. If you can understand the core principals at work here you can design a continuous proceeds that is right for your project.
 
-I'll guess that none of us are working on Boeing guidance systems or heart monitors.
+Remember, understand the process for taking and idea to production, understand the barriers and the blockers, work to bring down that cycle time.
 
-You are probably building a website or an app.
+Work to introduce tight feedback loops to the process is less time is wasted.
 
-Somewhere our their is a human and they are trying to use your software … too do something.
-
-That user is possibly quietly resenting their computer and wishing their boss had bought something else.
-
-Probably, though, they don't even notice our software.
-
-If we are doing great, though, they might love using our software.
-
-Ultimatley, our goal is to deliver something valuable to our users and be at least invisible if not great at it.
-
-This is a reasonable goal that can be shared by a whole organization.
-
-As we beging to talk about CI and CD we should keep that goal in mind, because everytool can be misued if it is used for the wrong reason.
+Finally, embrace the risk, and reserve time to experiment wi h ways to reduce risk.
 </div>
 
 ---
@@ -290,22 +724,6 @@ This means that you can only experiment as fast as you can ship. If your organiz
 
 ---
 
-# A Note on Cycle time
-
-> “Pushing your organization to drop cycle time to less then 1 hour is a forcing function for adopting Devops … In other words, if your cycle time is an hour or less you are probably doing Devops.” - Dave Farley author of Continous Delivery book
-
-<div class='notes'>
-Cycle time is an amazing metric. It literally measures the cadence or your organization. If your cycle time is 3 months, you can only improve things every 3 months.
-
-It can be quite daunting to think about how you are going to reduce a 3 month cycle time to 1 month, or a week, or even a day. But, you don't have to go all the way at once.
-
-Just like I am suggesting that you ship small bit's of change at a time, and experiement as you go. You should treat your transformationg to a continuous pipeline as a bunch of small experiements.
-
-Make sure you are doing what is right for your organization.
-</div>
-
----
-
 # Turning your product organization into a science lab
 
 
@@ -362,6 +780,7 @@ If you are anything like me, you want to know what others are doing.
 </div>
 
 ---
+
 # Techniques
 
 - Static Analysis
@@ -415,18 +834,6 @@ If you're tests are fast enough run them in a pre-commit phase. With something l
 
 ---
 
-# Small Diffs
-
-- less then 200 lines
-- Big change, lots of small chunks
-
-<div class='notes'>
-When you ship small diff's you'll get better feedback. You're team mates we'll be able to respond promptly to code reviews. You'll break fewer tests, and be able to react to change better.
-
-Even if you aren't sold on this idea, try it out. Experiement in your own commits. See how it affects the way you architect change.
-</div>
-
----
 
 # Code Review
 
@@ -468,33 +875,7 @@ Your users are probably interacting with your website, which means they have an 
 You'll need to find a way to keep connections open, and seamlessly flow from one version to the next. Whatever language, or stack you are using their is a way to do gracefull restarts.
 </div>
 
----
 
-# Feature Flags
-
-- Seperates deployment risk, from release risk
-- Allows trunk/master based development
-- Can be an incredible operations tool
-
-```
-if (feature_flag_enabled('new-feature')) {
-  …Do new thing…
-} else {
-  …Do existing thing…
-}
-```
-
-<div class='notes'>
-A recommended technique is to do trunk based deployments, every developer commits directly to trunk, and every commit to trunk is a release caniadate. Before you can do that you'll need to be able to disable or hide partial work.
-
-A feature flag is way provide runtime configuration for your app.
-
-This way you can hide new features until your organization is ready to release it. It also allows you to continuously deploy code to production without fear of accidentally turning on new features.
-
-Many organization, once they have implmented feature flags, realize that they can use them as an operatons tool. For instance, you could implment a switch that turns off less important features if your website is under stress freeing capacity for more imporant functionality.
-</div>
-
----
 
 # Do agile/lean/scrum/something…
 
@@ -523,6 +904,7 @@ If you can prevent a company with 10 developers being paid roughly dollars a mon
 </div>
 
 ---
+
 # Value Stream mapping
 
 - Know the steps from idea to production
@@ -536,6 +918,7 @@ Value stream mapping is something you can do to evaluate every step an idea take
 
 By mapping out the process you can then ask, does this step, which takes a week, increase the value of the idea? If it doesn't think about cutting the step.
 </div>
+
 ---
 
 # Humane Postmortems
@@ -678,18 +1061,6 @@ So, Even though I had no intention of working on a Perl app, I turned my attenti
 
 We are currently in the process of doing CI, and CD for this application. We've had some success, but we are not done. But, I can tell that this is doing good things.
 </div>
+
+
 ---
-
-# Continuous: All The Things
-
-![Continuous All the things](https://i.imgflip.com/1ltl84.jpg)
-
-<div class='notes'>
-In closing I'd like to re iterate. The ideas are simple. If you can understand the core principals at work here you can design a continuous proceeds that is right for your project.
-
-Remember, understand the process for taking and idea to production, understand the barriers and the blockers, work to bring down that cycle time.
-
-Work to introduce tight feedback loops to the process is less time is wasted.
-
-Finally, embrace the risk, and reserve time to experiment wi h ways to reduce risk.
-</div>
