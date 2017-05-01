@@ -60,7 +60,7 @@ Let's start with some defenitions. Even if you already know when these means, I 
 <div class="notes">
 About 2 and a half years ago I joined bepress to work on the rerwite of SelectedWorks.
 
-Since I joined we have take steps to implment continuous integration and delivery for SelectedWorks. Before I joined there were bits and pieces of CI and CD, but they weren't tied together into a continuous process for delivering value to users.
+Since I joined we have taken steps to implment continuous integration and delivery for SelectedWorks. Before I joined there were bits and pieces of CI and CD, but they weren't tied together into a continuous process.
 
 The biggest reason I wanted to implment CI and CD at bepress, was largely based on my experiences at these 3 companies.
 
@@ -69,9 +69,9 @@ So, to explain how we developed our process at bepress I think it helps to under
 
 ---
 
-# Yahoo
+# Yahoo circa 2006-2008
 
-- My first "real" job
+- No continuous process
 - Hard to understand the vision
 - Hard to see my impact
 
@@ -82,6 +82,8 @@ Yahoo, was my first real job. I worked with some great people and I had some gre
 Unfortunatley, the most important thing I learned from Yahoo was how not to do things.
 
 At Yahoo, I never undrestood the vision of the company or the teams I worked on, and I never saw how my impact contributed to the bottom line.
+
+Because I was committing code, and then not seeing it rollout for weeks it was difficult for me to fix bugs in my work.
 </div>
 
 ---
@@ -97,31 +99,34 @@ While I worked at Yahoo though, I had a number of side projects.
 
 I didn't have lot of time to work on them. Often, I would spend a couple hours building a new feature. Then forget how to deploy the website.
 
-Usually that meant that I wouldn't deploy the site. So, the feature I had just built, would sit on my computer. Who was that helping? It wasn't helping me, or the user, and it was increasing the risk that I would break something.
+Usually that meant that I wouldn't deploy the site. So, the feature I had just built, would sit on my computer. Which didn't creat value for anyone. It wasn't helping me, or the user, and it was increasing the risk that I would break something when I eventually got around to rolling out the website.
 
 So, there are 2 major take aways for me during this time.
 
-First, I started automatting deployments. So, as soon as I was done with the feature I ran one script and the website was deployed.
+I started to automate deployments. As soon as a feature was done I ran one script and the website was deployed.
 
-Second, I learned that I got better feedback if I released early. This allowed me to spend more time on features that made the sites grow. The longer I let features sit on my computer, the less valuable they were, and the more likely they were to break the website if I shipped them later.
+The other takeaway was that I got better feedback if I released early. This allowed me to spend more time on features that made the sites grow. The longer I let features sit on my computer, the less valuable they were.
 </div>
 
 ---
 
 # Mixed Media Labs
 
-- automated deployments, but no CI
-- Evolved to have CI and CD
-- Moved very fast
+- Started with bits and pieces of CI
+- Wasn't continuous
+- Which slowed down value delivery
+- We improved the process
 
 <div class="notes">
-After Yahoo, I worked at Mixed Media labs. It was the exact opposite of Yahoo. It was small and young, the company was less then 6 months old when I joined.
+After Yahoo, I worked at Mixed Media labs. It was the opposite of Yahoo. It was small and young, the company was less then 6 months old when I joined.
 
-But, it wasn't perfect either.
+It wasn't perfect either.
 
 In the begining we had automatted deployments, but I had to ask someone to deploy my code.
 
 Usually that person was busy and wouldn't deploy things right away. This caused a number of issues.
+
+We realized that this wasn't the most efficent process, and it slowed down our ability to deliver value to our users. We decided to improve the process.
 </div>
 
 ---
@@ -164,9 +169,9 @@ All these changes gave us an immense capacity for developing features, and that 
 <div class="notes">
 No where did our process demonstrate the most buisness value as it did on the last project mixed media labs built. That project was App.net. A paid social network platform.
 
-Building it was a risky proposition, so we wanted to gauge user interest before built the whole thing.
+Building it was a risky proposition, so we wanted to gauge user interest before we built the whole thing.
 
-We ended up building Kickstarter-like site, and If 10,000 users committed $50 with 30 days. We would launch the service.
+We ended up building a Kickstarter-like site, and If 10,000 users would commit $50 within 30 days. We would launch the service.
 </div>
 
 ---
@@ -183,6 +188,8 @@ We made it, and one of the many reasons for that was our continuous process.
 We started building the product as soon as we announced the project. We shipped small amounts of code constantly.
 
 After two weeks we started letting some users in to kick the tires. By the end of the initial fundraising we had raised almost 750k, and we became generally avaiable soon afterwards.
+
+Letting users in, help propel signups, because people coudl see that it wasn't vaporware.
 
 </div>
 ---
@@ -202,7 +209,7 @@ The biggest take away from app.net was...
 ![AllDay](/images/allday.png)
 
 <div class="notes">
-The next place I worked at was called AllDay. The plan was to create a site of Photo Essays. I joined AllDay near the begining as the VP of Engineering.
+The plan for All Day was to create a site of Photo Essays. I joined All Day near the begining as the VP of Engineering.
 </div>
 
 ---
@@ -216,9 +223,9 @@ The next place I worked at was called AllDay. The plan was to create a site of P
 - 1 engineer (me)
 
 <div class="notes">
-The core value propositon of All Day was something that I had been preparing for for a number of years. I shared a vision with the founders, and had a strong plan for how to build all the tools that were were goign to need.
+The core value propositon of All Day was something that I had been preparing for for a number of years. I shared a vision with the founders, and had a strong vison for how to build all the tools that were were goign to need.
 
-It was a tall order.
+It was still a tall order, though.
 
 ... Go over the bullit points.
 </div>
@@ -235,7 +242,7 @@ It was a tall order.
 <div class="notes">
 Given the buisness requirements and my experiences with CI, I knew the order of operations.
 
-I wanted the infrstructure required to ship code to production first, and then I would start building the aplication.
+I wanted the infrstructure required to ship code to production first, and then I would start building the application.
 </div>
 
 ---
@@ -263,9 +270,9 @@ In those 3 months I was joined by 2 other engineers. Who became productive almos
 - Wanted to speed up feature developement
 
 <div class="notes">
-Now, back to bepress. bepress is about 16 years old, and they have had a SaaS buisness almost the whole time.
+Now, back to bepress. bepress is about 16 years old, and they have had a SaaS buisness the whole time.
 
-They have many happy customers, but in 2013 they decided to rewrite SelectedWorks.
+They have many happy customers, and in 2013 they decided to rewrite SelectedWorks to try and speed up feature development.
 
 As I said, I joined bepress late in the SelectedWork rewrite.
 </div>
@@ -280,13 +287,11 @@ As I said, I joined bepress late in the SelectedWork rewrite.
 - Overbudget
 
 <div class='notes'>
-No team is perfect, and SelectedWorks was no different, but there were some small problems that were preventing us from moving quickly. And, they all sounded a little familiar.
+No project is perfect, and SelectedWorks was no different, but there were some small problems that were preventing us from moving quickly. And, they all sounded a little familiar.
 
-Tests ran on a schedule, which means that people would check in code, and they wouldn't know that they broke something until a day later. By that time, many people had commited and it wasn't clear what broke the tests.
+Tests didn't run on commit. There were no regular deployments, The project was overbudget and over schedule.
 
-There were no regular deployments. The rewrite was happening internally, only internal stakeholders could see it, so the thought was there was no one to deploy too.
-
-It was also overbudget and over schedule.
+We had many of the pieces of a continuous process, but we hadn't connected them together.
 </div>
 
 ---
@@ -298,7 +303,9 @@ It was also overbudget and over schedule.
 - Run experiment, and ask if it helped
 
 <div class="notes">
-The short answer is the we adopted continuous integration and delivery, but the longer answer is more nuanced. As we articulated a given problem, we would fix it.
+The short answer is the we adopted continuous integration and delivery, but the longer answer is more nuanced.
+
+As we articulated a given problem, we would fix it.
 </div>
 
 ---
@@ -313,7 +320,7 @@ The short answer is the we adopted continuous integration and delivery, but the 
 <div class="notes">
 One issue we ran into often was users commiting code that would break the tests, and they wouldn't know that. Then a number of checkins would happen and no one would know who broke the tests. So, we introduced a pre-commit phase in our code flow.
 
-It was an early experiement that created alot of value for us because it created a fast feedback cycle.
+It was an early experiement that created a lot of value for us because it created a fast feedback cycle.
 
 For us this mean't that all code destined for the master branch was sent as a Github Pull Request. Anytime a PR is created we would have Jenkins lint all the code, and run all the unit tests.
 
@@ -358,7 +365,7 @@ And, customers were happy.
 
 But, we had issues.
 
-This release capped off a 3-year rewrite from the ground up, issues were to be expected.
+After all, this release capped off a 3-year rewrite from the ground up, issues were to be expected.
 </div>
 
 ---
@@ -384,7 +391,6 @@ We were often pushing code upto 10 times a day. In a given week we might have pu
 - Percieved lack of "QA"
 - How will users feel about changes
 - Keeping users informed about product updates
-- Documentation not keeping up
 
 <div class="notes">
 They wanted to know why we had to keep shipping. Even after we had squashed all the bugs, they wanted to know why we couldn't just go back to periodic releases instead of continuous.
@@ -411,11 +417,9 @@ If our goal is to deliver value to our users, then any feature that we have buil
 
 Furthermore, if we save a bunch of code to be deployed at once, their is a bigger risk that any given deploy will fail.
 
-And, add on top of that the fact that we don't have the ability to release continuously, we can't really test new features in production before we release them widley, we are missing out on a golden opprtunity to do producto validation.
+We realized that if you take a step back and look at all the risks. Then it was clear, releasing code continuously was the least risky thing you could do.
 
-Instead of looking at the continuous process as the risk, we need to look at all the risk involved in building a product, and minmize that risk.
-
-So, we begain the look at each issue our production team had, and design a soluton that worked for them, and for us.
+We begain the look at each issue our product team had, and design a soluton that worked for them, and for us.
 </div>
 
 ---
@@ -431,20 +435,22 @@ The first issue we had to look at was, how do we ensure the quality of our sotwa
 
 To be clear, having humans do QA is a great thing, but if your engineering team has a high degree of confidence that something is unit-testable, then do you need a human to QA each release? This is different for every organization, but for us the answer was no.
 
-But, we needed a way to make that decsion before we started on the work, and not after.
+We needed a way to make that decsion before we started on the work, and not after.
 
 We realized that as we planned out the feature, at the ticket writing stage, we could move a lot of work to a point before the engineer wrote any code. And, it made things better.
 
 So, instead of deciding on how to QA something after the feature was written, we would decide the QA process when we wrote the ticket. We've started moving other things to the front of the line as well. And, it's had this knock on effect of having QA in depth.
 
-We have a range of strategies for Quality assurance from developers testing stuff, to havign a full suite of QA from  a human, but we decide upfront what our process will be. Even moving things like updates, and docs up front could have an effect on quality because it made sure everyone was on the same page.
+We have a range of strategies for Quality assurance from developers testing, to having a full suite of tests executed by a human QA engineer, but we decide upfront what our process will be.
+
+Even moving things like planning user updates, and writing docs up front could have an effect on quality because it made sure everyone was on the same page.
 </div>
 ---
 
 # The Feature Release Issue
 
 - Seperated code deployment, and feature deployment
-- Allows trunk/master based development
+- Allowed us to ship trunk
 
 ```
 if (feature_flag_enabled('new-feature')) {
@@ -459,7 +465,7 @@ The next thing we tackled was feature release. The way that we did this was we s
 
 This allows the engineers to continuously deploy code to production, but the buisness get's to decide when to release a feature.
 
-This also helps us in QA. We can ship all the code for a big feature to production. Then flip it on just for QA, in production sometimes. Where they can test it on real data in the exact same environment as our user. When they are happy, the feature release is just the flip of a switch.
+This also helps us in QA. We can ship all the code for a big feature to production. Then flip it on just for QA, in production sometimes. Where they can test it on real data in the same environment as our user. When everyone is happy, the feature release is just the flip of a switch.
 </div>
 
 ---
@@ -477,6 +483,48 @@ bepress is generally happy with CI, and CD. We are still experimenting with ways
 In general, CI and CD have helped us speed up feature development, and bug fixes.
 
 We think that it's helpfull enought, that we are in the process of trying to do CI, and CD with our oldest application called Digital Commons. We just recently started doing weekly released instead of quarterly releases, and things are working out well so far.
+</div>
+
+---
+
+# Doing CI/CD For 16 year old app
+
+- Recently did CI/CD for Digital Commons
+- Was doing quartlery deploys
+- Vision first process
+- Continuouly suprised by the solutuon
+
+<div class="notes">
+We recently completed a project to bring continuous integraiton, and delivery to Digital Commons. Digital Commons is a 16 year old application that was not built to be deployed continuously.
+
+It was deployed quarterly and it could take hours to deploy. On more then one occasion deploys had to be scrapped because an error was found during the deployment process.
+
+Started with a vision for what we wanted. On-demand deploys. Our release engineer shoudl be able to roll code to any enviornment as needed.
+
+Then we came up with a plan for how to get their. Which we promptly rewrote againg, and again.
+
+As we engaged with the problem, we would plan out a solution, only to retreat and try something else.
+</div>
+
+---
+
+# Have a system, not a solution
+
+- Treat it like an experiment
+- Hypothesize
+- Try an experiemnt
+- Evaluate
+
+<div class="notes">
+We would start with a problem, and then propose a solution. Invariable we would need to come back and try another solution.
+
+For Example. Digital Commons has a number of offline jobs that happen. Some of those jobs could take up to day or more to complete. So, if we wanted to deploy on-demand, how were we going to gracefulyl stop and start jobs.
+
+We started with the idea of re-writing everything to happen in smaller chunks, but that would take a really long time. So, we asked the question, can we just kill them and restart from the begining?
+
+The answer was yes for all the jobs except 1. So, we wrote our deployment process to just not force that one job to restart, and our release engineer will eyeball that one, and kill it when it finishes.
+
+This isn't our stopping point though. What we knew is that releasing continuously, makes it easier to fix everything else, so we accepted some tech debt in order to achieve a better process.
 </div>
 
 ---
