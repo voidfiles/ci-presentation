@@ -1,3 +1,3 @@
 #! /bin/bash
 
-proselint presentation.md
+# proselint presentation.md
