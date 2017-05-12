@@ -17,7 +17,7 @@
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 1.77em; }
+  font-size: 1.5em; }
 
 .reveal h2 {
   font-size: 1.2em; }
@@ -41,4 +41,47 @@
 body {
   background: #C1E1EC;
   background-color: #C1E1EC;
+}
+
+.reveal blockquote {
+  width: 100%;
+  font-style: normal;
+  box-shadow: none;
+}
+
+.reveal blockquote p {
+  margin-top: -3em;
+  margin-left: 2em;
+}
+
+.reveal blockquote:before {
+  content: "\201C";
+  font-family: Garamond;
+  font-size: 3em;
+  position: relative;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal figure {
+  text-align: center;
+}
+
+.reveal figure {
+  text-align: center;
+}
+
+.reveal ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.reveal ul li:before {
+    content: "\2605";
+    position: relative;
+    top: -.3em;
+    padding-right: .5em;
+    font-size: 0.5em;
 }
