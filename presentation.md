@@ -3,7 +3,7 @@
 Alex Kessinger, Software Architect @ bepress
 
 <div class='notes'>
-Hi, My name is Alex Kessinger. I am a software architect at bepress. Today, I want talk about how bepress uses continuous integration and delivery to speed up product development, and how you can do the same.
+Hi, my name is Alex Kessinger. I am a software architect at bepress. Today I want talk about how bepress uses continuous integration and delivery to speed up product development and how you can do the same.
 </div>
 
 ---
@@ -11,20 +11,20 @@ Hi, My name is Alex Kessinger. I am a software architect at bepress. Today, I wa
 ![bepress](/images/bepress.png)
 
 <div class='notes'>
-bepress is located in Berkeley, California. The company employees about 100 people, but the dev team is a small portion of that. Most are pictured here. I'm on the TV screen becuase myself and a couple others work remoteley.
+bepress is located in Berkeley, California. The company employees around 75 people, but the dev team is a small portion of that. Most are pictured here. I'm on the TV screen because myself and a couple others work remoteley.
 
-Bepress has two main products. SelectedWorks, and Digital Commons.
+bepress has two main products the Expert Gallery Suite and Digital Commons.
 
-Digital Commons is a hosted instituion repository.
-Selected Works is like a hosted linkedin for the academic commuity at an insitution.
+Digital Commons is an IR and The Expert Gallery Suite helps you showcase your peoples expertise.
 </div>
 
 ---
 
-# Defenitions
+# Defenitions and Goals
 
 - Continuous Integration
 - Continuous Delivery
+- The Goal
 
 <div class="notes">
 Let's start with some defenitions. Even if you already know when these means, I think it's helpful to be on the same page before we start.
@@ -51,6 +51,16 @@ Let's start with some defenitions. Even if you already know when these means, I 
 
 ---
 
+# The Goal
+
+Whatever kind of organization you are with, whether it is commerical, non-profit, private, or public, it has goals. Continuous integration and delivery helps align your development team with the goals of the organization.
+
+<div class="notes">
+What is the goal of CI and CD
+</div>
+
+---
+
 # My CI Background
 
 - Yahoo: 6 distinct teams/projects
@@ -69,7 +79,7 @@ So, to explain how we developed our process at bepress I think it helps to under
 
 ---
 
-# Yahoo circa 2006-2008
+# Yahoo
 
 - No continuous process
 - Hard to understand the vision
@@ -143,14 +153,22 @@ We realized that this wasn't the most efficent process, and it slowed down our a
 But, because the company was focused on building value for users, shipping code to users quickly was a priority.
 
 In a short amount of time we changed the flow to make it more continuous.
+</div>
 
+---
+
+# MML: Flow Improvements
+
+![bepress](/images/adn_code_review.JPG)
+
+<div class="notes">
 First, we created a code review step, with a tool called Gerrit.
 
 The first review was automated. A CI server would run all the tests and lint checks. If those failed, you knew to fix those before asking a human to do a code review.
 
 Once lint, and tests had passed you would ask a co-worker to checkout out your code.
 
-Once the code was reviewed, it was automatically deployed to a staging server. And, then it was our job as developers to do what we needed to have confidence in our changes and then ship to production.
+Once the code was reviewed, it was automatically deployed to an integration server. And, then it was our job as developers to do what we needed to have confidence in our changes and then ship to production.
 
 Lastly, partly because we knew we could ship code to production at anytime, and partly because it was a convention, we shipped code in smaller chunks, like less then 300 lines. This improved code review quality, and it reduced the risk that we were going to break something.
 
@@ -216,10 +234,10 @@ The plan for All Day was to create a site of Photo Essays. I joined All Day near
 
 # All Day: What I knew
 
-- 3 audiences: readers, publishers and editors
+- 3 audiences: readers, publishers, and editors
 - Distinct product for each audience
 - Expected a large number of readers
-- 0 existing infrastructure
+- No existing infrastructure
 - 1 engineer (me)
 
 <div class="notes">
@@ -250,13 +268,13 @@ I wanted the infrstructure required to ship code to production first, and then I
 # All Day: Success
 
 - We launched in 3 months
-- With 3 distinct interfaces
-- At peak we did 300 RPS
+- 3 distinct interfaces
+- At peak we had 300 RPS
 
 <div class="notes">
 And, it worked out, mainly because of the continuous process.
 
-We launched in less then 3 months to and audience of almost 100,000 unique visitors a day, and at peak times we did almost 300 requests per second.
+We launched in less then 3 months to an audience of almost 100,000 unique visitors a day, and at peak times we did almost 300 requests per second.
 
 In those 3 months I was joined by 2 other engineers. Who became productive almost immediatly. They setup their dev box, I showed them how to run tests, and how to ship to production and that was it. They could contribute code on their first day.
 </div>
@@ -266,13 +284,13 @@ In those 3 months I was joined by 2 other engineers. Who became productive almos
 # Back to bepress
 
 - 16 year history
-- Lot's of happy customers
+- 500+ happy customers
 - Wanted to speed up feature developement
 
 <div class="notes">
 Now, back to bepress. bepress is about 16 years old, and they have had a SaaS buisness the whole time.
 
-They have many happy customers, and in 2013 they decided to rewrite SelectedWorks to try and speed up feature development.
+They have 500+ happy customers, and in 2013 they decided to rewrite SelectedWorks to try and speed up feature development.
 
 As I said, I joined bepress late in the SelectedWork rewrite.
 </div>
@@ -300,7 +318,7 @@ We had many of the pieces of a continuous process, but we hadn't connected them 
 
 - Hypothesize about a problem
 - Propose an experiement
-- Run experiment, and ask if it helped
+- Run experiment, and ask did it help?
 
 <div class="notes">
 The short answer is the we adopted continuous integration and delivery, but the longer answer is more nuanced.
@@ -321,7 +339,15 @@ As we articulated a given problem, we would fix it.
 One issue we ran into often was users commiting code that would break the tests, and they wouldn't know that. Then a number of checkins would happen and no one would know who broke the tests. So, we introduced a pre-commit phase in our code flow.
 
 It was an early experiement that created a lot of value for us because it created a fast feedback cycle.
+</div>
 
+---
+
+# Fast Feedback
+
+![bepress](/images/bepress_code_review.JPG)
+
+<div class="notes">
 For us this mean't that all code destined for the master branch was sent as a Github Pull Request. Anytime a PR is created we would have Jenkins lint all the code, and run all the unit tests.
 
 Then a user would request a code review.
@@ -346,7 +372,15 @@ Another problem we ran into is the lack of deployments. Because SelectedWorks wa
 Developers would often just walk their laptop over our product manager and demo the code.
 
 As, we approached the release date, we wanted to have a more production like release flow. So, we automatted deployments, and we made them automattic in some cases.
+</div>
 
+---
+
+# Easy Deployments
+
+![East Deployments](/images/bepress_code_review.JPG)
+
+<div class="notes">
 Anytime code was committed to master, we would automatically deploy to staging.
 
 This allowed our internal stakeholders to really use the features we were building, and deliver high quality feedback.
@@ -354,7 +388,7 @@ This allowed our internal stakeholders to really use the features we were buildi
 
 ---
 
-# SelectedWorks: Next Generation
+# SelectedWorks: Launch
 
 ![New Selected Works](/images/selected_works_new.png)
 
@@ -389,7 +423,7 @@ We were often pushing code upto 10 times a day. In a given week we might have pu
 
 - Seemingly no control of feature release
 - Percieved lack of "QA"
-- How will users feel about changes
+- How will users feel about changes?
 - Keeping users informed about product updates
 
 <div class="notes">
@@ -406,8 +440,8 @@ So, I asked another question?
 
 # Why (Not) Continuous?
 
-- The goal is to deliver value to users.
-- Risk prevents us from delivering value to users.
+- The goal is to deliver value to users
+- Risk prevents us from delivering value to users
 - The only certain thing is uncertainty
 - Least risky strategy: ship small bits continuously
 
@@ -427,7 +461,7 @@ We begain the look at each issue our product team had, and design a soluton that
 # The Quality Issue
 
 - Move quality to the front
-- Small Diffs
+- Small diffs
 - QA in depth
 
 <div class="notes">
@@ -451,7 +485,7 @@ Even moving things like planning user updates, and writing docs up front could h
 
 # The Feature Release Issue
 
-- Seperated code deployment, and feature deployment
+- Seperated code deployment and feature deployment
 - Allowed us to ship trunk
 
 ```
@@ -475,8 +509,8 @@ This also helps us in QA. We can ship all the code for a big feature to producti
 # Moving Forward
 
 - Generally happy with CI/CD
-- Feature development time from months to weeks
-- Bug fix from weeks to hours
+- Feature development time reduced from months to weeks
+- Bug fixes reduced from weeks to hours
 - Working on expanding CI/CD to other apps
 
 <div class="notes">
@@ -559,14 +593,12 @@ Principally, I think these 3 books have had the most influence on me, but it's a
 
 # Continuous: All The Things
 
-![Continuous All the things](https://i.imgflip.com/1ltl84.jpg)
+![Continuous All The Things](/images/1ltl84.jpg)
+
+Contact Me: akessinger@bepress.com
 
 <div class='notes'>
 In closing I'd like to re iterate. The ideas are simple. If you can understand the core principals at work here you can design a continuous proceeds that is right for your project.
 
-Remember, understand the process for taking and idea to production, understand the barriers and the blockers, work to bring down that cycle time.
-
-Work to introduce tight feedback loops to the process is less time is wasted.
-
-Finally, embrace the risk, and reserve time to experiment wi h ways to reduce risk.
+Embrace the risk, and reserve time to experiment with ways to reduce it.
 </div>
