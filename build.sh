@@ -1,21 +1,22 @@
 #! /bin/bash
 
-rm -fR outpute/images
+rm -fR output/images
+rm -fR output/reveal.js
 mkdir -p output/images
 cp images/* output/images/
-
+cp -fR reveal.js output/reveal.js
 # find ./graphs -name "*.dot" -print | cut -c 10- | cut -d . -f 1 | xargs -I@ bash -c "dot graphs/@.dot -Tpng -oimages/@.png"
 cp custom.css output/
 
 pandoc -t revealjs \
        -s presentation.md  \
        -o output/index.html \
-       --from=markdown+yaml_metadata_block \
+       --from=markdown \
        --template=revealjs \
        --data-dir=./ \
        --standalone \
        -c custom.css \
-       -V revealjs-url:https://cdn.rawgit.com/hakimel/reveal.js/master/ \
+       -V revealjs-url:/reveal.js/ \
        --variable theme="solarized"
 
 pandoc --template=revealjs_print.revealjs \
@@ -24,5 +25,5 @@ pandoc --template=revealjs_print.revealjs \
        --from=markdown \
        --data-dir=./ \
        --variable theme="solarized" \
-       -V revealjs-url:https://cdn.rawgit.com/hakimel/reveal.js/master/ \
+       -V revealjs-url:/reveal.js/ \
        --standalone
