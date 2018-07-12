@@ -21,7 +21,7 @@ Alex Kessinger @ bepress
 
 ---
 
-# I **try** to deliver value to customers.
+# I **try** to deliver value to customers
 
 <div class="notes">What I should probably tell people is that I try to deliver value to customers. Because, as we all know there is no guarantee that any of the things we build will work, let alone deliver value.</div>
 
@@ -63,41 +63,41 @@ Alex Kessinger @ bepress
 
 ---
 
-# Our people are our greatest resource.
+# Our people are our greatest resource
 
 <div class="notes">And when we set out to increase the value we deliver to our customers we should use our most valuable resource, our people. Our people are our greatest resource.</div>
 
 ---
 
-# A continuous process is the best way to efficiently let our people deliver our to your customers.
+# A continuous process is the best way to efficiently let people deliver value to our customers
 
 <div class="notes">I came here today to talk about continuous integration and delivery because I think they are a powerful toolset that people can use to deliver value to our customers, but these tools are only useful in an organization that recognizes the power of unleashing its human potential. So, before I dive into ci and cd I have to contextualize them.</div>
 ---
 
 # It's pretty simple.
 
-<div class="notes">In theory it's pretty simple, and yet I could spend hours diving into the details, so here is the basics.</div>
+<div class="notes">In theory it's pretty simple, and yet I could spend hours diving into the details, so here are the basics.</div>
 
 ---
 
 1. Vision
-2. Empower our people
-3. Try lots of things
-4. Measure outcomes
+2. Empower people
+3. Experiment
+4. Measure
 
-<div class="notes">In order to unleash your human potential you must create a virtuous cycle that encompasses these steps. Vision, empowerment, try lots of things, and measurement outcomes. If you have ever heard of the OODA loop, or the plan do check act cycle, you know what I am talking about here, but let me dive into each step in more detail.</div>
-
----
-
-# Vision is how you align all the people, it's the why to the goals what.
-
-<div class="notes">People want to do the best thing they can, but often they are confused as to the best course of action. Having a vision is a great way to make plain what you are trying to do so that people can figure out what to do next. Vision is how you align all the people, it's the why to the goals what.</div>
+<div class="notes">In order to unleash your human potential you must create a virtuous cycle that encompasses these steps. Vision, empowerment, Experiment, and measurement, especially outcomes. If you have ever heard of the OODA loop, or the plan do check act cycle, you know what I am talking about here, but let me dive into each step in more detail.</div>
 
 ---
 
-# Empower people to align their teams with the overall vision and goals
+# Vision aligns people
 
-<div class="notes">Now that people know where they are headed. We should empower them to find the best course of action.</div>
+<div class="notes">People want to do the best thing they can, but often they are confused as to the best course of action. Having a vision is a great way to make plain what you are trying to do so that people can figure out what to do next. Vision aligns people, it's the why to the goals what.</div>
+
+---
+
+# Empower people to align their teams with the overall vision
+
+<div class="notes">Now that people know where they are headed. We should empower people to align their teams with the overall vision by choosing the best course of action.</div>
 
 ---
 
@@ -107,25 +107,25 @@ Alex Kessinger @ bepress
 
 ---
 
-# A continuous process can help us unlock the power of our people.
+# A continuous process can unlock the power of our people
 
-<div class="notes">The good news is that a continuous process can help us unlock the power of our people.</div>
+<div class="notes">The good news is that a continuous process can unlock the power of our people.</div>
 
 ---
 
-# A continuous process is just a small part of the overall plan
+# A continuous process is a small part of the overall plan
 
 <div class="notes">But the bad news is that a continuous process is a small part of the over all plan.</div>
 
 ---
 
-# Tools empower our people
+# Tools empower people
 
-<div class="notes">We must recognize that tools empower our people to execute the vision, and that our people should be at the center of this discussion.</div>
+<div class="notes">We must recognize that tools empower people to execute the vision, and our people should be at the center of this discussion.</div>
 
 ---
 
-# What about the tools, tho
+# What about the tools
 
 <div class="notes">Right now you might be saying, what about the tools though, so here is my crib notes. If anyone wants to talk more in detail I am more then willing to, I could geek out on this stuff all day.
 </div>
@@ -145,7 +145,7 @@ We practice these tenants on every product at bepress and we've had some hairy t
 </div>
 ---
 
-# Our people are our greatest asset. We should not squander them. Let them use tools to empower them selves.
+# Our people are our greatest asset. We should not squander them. Let them use tools to empower themselves.
 
 <div class="notes">In summary, our people are our greatest asset and we should not squander them. Tell them where we should go and why. Empower them to make contextual decisions on how to move towards the goal. Remember, there are no straight paths to the promised land, help teams increase the number experiments they are doing over time. Measure key outcomes so teams may know that they are moving in the right direction. Use CI and CD. Finally, damnit, just get out of their way.
 </div>
